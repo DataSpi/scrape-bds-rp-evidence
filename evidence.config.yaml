@@ -1,0 +1,5 @@
+project:
+  name: scrape-bds-rp-evidence
+  evidence: "0.9.1"
+
+pages: ./pages
