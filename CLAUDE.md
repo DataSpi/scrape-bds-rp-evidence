@@ -39,15 +39,22 @@ Một **site tĩnh** cho độc giả blog (series Substack của DataSpi/spyno)
 
 - **Site là public**: mọi thứ nằm trong bản build đều tải về được. Chỉ dùng **bảng đã aggregate** (theo quận/tháng/loại hình...), không bao giờ đưa dữ liệu từng tin đăng, số điện thoại, hay tên người đăng vào site.
 - Aggregate nằm ở **dbt trong `../scrape-batdongsan-data`** (các bảng `mart_site_*` trong `re_gold`), không viết logic tính toán nặng bằng SQL trong trang Evidence. Trang chỉ `select` từ bảng đã chuẩn bị, để số liệu có một nguồn duy nhất và test được bằng dbt.
-- Nguồn gốc: `re_gold.mart_real_estate` (và `mart_real_estate_rent`). Nhớ ngữ nghĩa từ repo kia: `fct_*`/`mart_*` chỉ giữ bản mới nhất, không có lịch sử; xu hướng theo thời gian phải đến từ snapshot/bảng aggregate theo kỳ.
+- Nguồn gốc: `re_gold.mart_real_estate_period` (và `mart_real_estate_rent_period`): mỗi tin một dòng mỗi kỳ báo cáo, dựng lại từ bronze theo seed `dim_report_period`. Không dùng `mart_real_estate` cho kỳ cũ: mart chỉ giữ bản cào mới nhất của mỗi tin, tin còn treo tới kỳ sau bị ghi đè nên lọc `date_scraped` kỳ cũ ra mẫu thiếu và lệch.
 - Cần cột/bảng mới thì thêm vào dbt ở repo kia, đừng bù bằng SQL phức tạp ở đây.
+
+## Cấu trúc site
+
+- `pages/index.md` (home) chia 2 mục **Giá mua** / **Giá thuê**, mỗi mục một thẻ cho từng loại hình (chung cư, nhà đất).
+- Mỗi loại hình một thư mục `pages/<mua|thue>/<loai-hinh>/`: `index.md` liệt kê các kỳ + xu hướng qua các kỳ, `[period].md` là template bài phân tích của một kỳ (`${params.period}` = `YYYY-MM`). Từ kỳ thứ hai, bài có mục "So với <kỳ trước>" (tự ẩn khi không có kỳ trước).
+- Loại hình chưa có dữ liệu chỉ có `index.md` báo "sắp có".
+- Link trong trang: Evidence tự chèn `basePath` vào mọi `href=` (kể cả href động), nên viết `href="/mua/chung-cu"` cho link tĩnh, còn link sinh từ SQL thì **bỏ dấu `/` đầu** (`'mua/chung-cu/' || period`), không gọi `addBasePath` thêm.
 
 ## Convention
 
 - **Không commit credential.** Với nguồn BigQuery thật (plugin `@evidence-dev/bigquery`), thông tin xác thực đặt trong `sources/<ten>/connection.options.yaml` (đã gitignore qua `*.options.yaml`); chỉ `connection.yaml` (không chứa bí mật) được commit. Service account key dùng chung với repo kia: tham chiếu đường dẫn tuyệt đối tới file trong `../scrape-batdongsan-data`, không copy key vào repo này. Chỉ dùng quyền đọc (BigQuery Data Viewer + Job User là đủ).
 - **Luồng dữ liệu**: `scripts/extract_data.py` (chạy local, cần key BigQuery) trích bảng **đã tổng hợp** ra `sources/bds_real/*.csv`; các CSV này được commit; Evidence build từ CSV (`npm run sources` + `npm run build`). Vì vậy key BigQuery chỉ cần trên máy local và **không bao giờ vào GitHub Actions/Secrets**: workflow `pages.yml` chỉ build từ CSV đã commit. Muốn đổi snapshot hay cập nhật số: chạy lại script rồi commit CSV mới.
 - Script chỉ `SELECT`, đọc key qua biến môi trường `GOOGLE_APPLICATION_CREDENTIALS` (không copy key vào repo, không in nội dung key), và từ chối ghi file nếu có cột thuộc dạng định danh từng tin (title/link/product_id/số điện thoại...). Thêm bảng/cột mới vào script phải giữ nguyên các chốt chặn này.
-- Mỗi snapshot phải chọn theo `date_scraped` (mart trộn nhiều đợt scrape và có tin không có ngày). Không so sánh số giữa hai snapshot mà không kiểm tra độ phủ mẫu (số tin, số quận) giống nhau; trang phải nói rõ khi mẫu khác nhau.
+- Kỳ báo cáo do seed `dim_report_period` (repo kia) định nghĩa bằng khoảng `date_scraped`; tin không có ngày bị loại. Không so sánh số giữa hai snapshot mà không kiểm tra độ phủ mẫu (số tin, số quận) giống nhau; trang phải nói rõ khi mẫu khác nhau.
 - Mọi con số trong văn bản trang web lấy từ truy vấn (in bằng `{query[0].cot}`), không gõ tay; chỉ các đoạn trích nguyên văn từ bài cũ là chuỗi cố định. Số đã định dạng sẵn thành chuỗi trong SQL (`printf`, `format`): component `<Value>` tự đoán kiểu theo tên cột (`*_pct` bị nhân 100) nên tránh dùng cho số đã chuẩn bị. Giọng văn và cấu trúc bài theo skill `real_estate_analyzer` của repo scrape-batdongsan-data.
 - Mỗi thay đổi lớn một branch/PR riêng.
 - Tích hợp vào pipeline tuần (nếu về sau chốt dùng): step build+deploy gọi từ `src/ops/run_weekly_pipeline.sh` của repo kia bằng đường dẫn tuyệt đối, **non-fatal** (dashboard lỗi không được làm sập scrape). Phần đó ghi ở CLAUDE.md của repo kia, không ghi ở đây.
