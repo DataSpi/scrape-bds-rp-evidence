@@ -2,18 +2,25 @@
 
 Prototype báo cáo tĩnh bằng [Evidence](https://github.com/evidence-dev/evidence) (bản **legacy**) cho dự án phân tích thị trường BĐS Việt Nam. Repo anh em của `scrape-batdongsan-data`. Mục đích và đầu ra mong muốn: xem [CLAUDE.md](CLAUDE.md).
 
-Trang demo (dữ liệu giả): https://dataspi.github.io/scrape-bds-rp-evidence/
+Trang: https://dataspi.github.io/scrape-bds-rp-evidence/ (bản dữ liệu thật, snapshot ghi trong trang)
 
 ## Chạy local
 
 ```bash
 npm ci
-npm run sources   # nạp CSV trong sources/ vào DuckDB
+npm run sources   # nạp CSV trong sources/bds_real vào DuckDB
 npm run dev       # xem trước, hot reload
 npm run build     # ra thư mục build/ (site tĩnh)
 ```
 
-Dữ liệu demo sinh bằng `python3 scripts/gen_dummy_data.py` (seed cố định).
+## Cập nhật dữ liệu (chạy local, cần quyền đọc BigQuery)
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=<đường dẫn tới file service account>   # không copy key vào repo
+python scripts/extract_data.py --snapshot-start 2026-10-16   # cần google-cloud-bigquery (conda env scrape_bds)
+```
+
+Script chỉ `SELECT` và ghi bảng đã tổng hợp ra `sources/bds_real/*.csv`; commit các CSV rồi push, workflow Pages build từ CSV (không cần key).
 
 ## Kết quả đánh giá Evidence cho mục tiêu "site tĩnh, host miễn phí"
 
