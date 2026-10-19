@@ -17,10 +17,12 @@ npm run build     # ra thư mục build/ (site tĩnh)
 
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS=<đường dẫn tới file service account>   # không copy key vào repo
-python scripts/extract_data.py --snapshot-start 2026-10-16   # cần google-cloud-bigquery (conda env scrape_bds)
+python scripts/extract_data.py   # cần google-cloud-bigquery (conda env scrape_bds)
 ```
 
-Script chỉ `SELECT` và ghi bảng đã tổng hợp ra `sources/bds_real/*.csv`; commit các CSV rồi push, workflow Pages build từ CSV (không cần key).
+Script chỉ `SELECT` và ghi bảng đã tổng hợp ra `sources/bds_real/*.csv` (mỗi bảng có cột `period`); commit các CSV rồi push, workflow Pages build từ CSV (không cần key).
+
+Thêm một kỳ báo cáo mới: thêm dòng vào seed `dbt/seeds/dim_report_period.csv` ở repo scrape-batdongsan-data, chạy `dbt seed -s dim_report_period` + `dbt run -s dim_report_period+`, rồi chạy lại script trên. Trang của kỳ mới tự sinh từ template, không phải viết trang mới.
 
 ## Kết quả đánh giá Evidence cho mục tiêu "site tĩnh, host miễn phí"
 

@@ -1,0 +1,147 @@
+period,city,type,district,n,avg_price_ty,avg_price_1m2
+2026-07,Hà Nội,nhà biệt thự liền kề,Hà Đông,859,30.16,245.8
+2026-07,Hà Nội,nhà biệt thự liền kề,Nam Từ Liêm,432,49.1,332.4
+2026-07,Hà Nội,nhà biệt thự liền kề,Hoài Đức,349,32.99,187.2
+2026-07,Hà Nội,nhà biệt thự liền kề,Gia Lâm,298,33.84,228.2
+2026-07,Hà Nội,nhà biệt thự liền kề,Tây Hồ,275,100.39,475.2
+2026-07,Hà Nội,nhà biệt thự liền kề,Hoàng Mai,264,48.06,330.6
+2026-07,Hà Nội,nhà biệt thự liền kề,Long Biên,253,82.67,353.2
+2026-07,Hà Nội,nhà biệt thự liền kề,Bắc Từ Liêm,167,59.44,343.7
+2026-07,Hà Nội,nhà biệt thự liền kề,Đông Anh,160,32.22,270.5
+2026-07,Hà Nội,nhà biệt thự liền kề,Đan Phượng,160,20.86,190.9
+2026-07,Hà Nội,nhà biệt thự liền kề,Cầu Giấy,112,83.24,448.1
+2026-07,Hà Nội,nhà biệt thự liền kề,Mê Linh,94,15.86,76.7
+2026-07,Hà Nội,nhà biệt thự liền kề,Thanh Xuân,65,48.49,416.4
+2026-07,Hà Nội,nhà biệt thự liền kề,Ba Đình,49,68.0,568.0
+2026-07,Hà Nội,nhà biệt thự liền kề,Thanh Trì,43,30.62,282.7
+2026-07,Hà Nội,nhà biệt thự liền kề,Thạch Thất,38,23.2,72.8
+2026-07,Hà Nội,nhà biệt thự liền kề,Thường Tín,22,14.42,190.2
+2026-07,Hà Nội,nhà biệt thự liền kề,Quốc Oai,17,25.72,106.0
+2026-07,Hà Nội,nhà biệt thự liền kề,Hai Bà Trưng,17,42.08,382.7
+2026-07,Hà Nội,nhà biệt thự liền kề,Đống Đa,11,54.5,589.0
+2026-07,Hà Nội,nhà mặt phố,Cầu Giấy,346,92.39,582.9
+2026-07,Hà Nội,nhà mặt phố,Đống Đa,215,62.95,611.1
+2026-07,Hà Nội,nhà mặt phố,Hai Bà Trưng,205,82.17,644.6
+2026-07,Hà Nội,nhà mặt phố,Hà Đông,190,26.39,337.5
+2026-07,Hà Nội,nhà mặt phố,Long Biên,171,56.88,393.0
+2026-07,Hà Nội,nhà mặt phố,Ba Đình,159,119.37,622.6
+2026-07,Hà Nội,nhà mặt phố,Hoàn Kiếm,152,133.66,768.1
+2026-07,Hà Nội,nhà mặt phố,Tây Hồ,142,115.7,611.3
+2026-07,Hà Nội,nhà mặt phố,Nam Từ Liêm,135,93.27,460.5
+2026-07,Hà Nội,nhà mặt phố,Thanh Xuân,135,61.37,507.3
+2026-07,Hà Nội,nhà mặt phố,Hoàng Mai,92,40.3,435.3
+2026-07,Hà Nội,nhà mặt phố,Bắc Từ Liêm,54,40.55,352.3
+2026-07,Hà Nội,nhà mặt phố,Gia Lâm,27,22.29,252.7
+2026-07,Hà Nội,nhà mặt phố,Thanh Trì,25,37.02,296.7
+2026-07,Hà Nội,nhà mặt phố,Đông Anh,20,23.91,201.0
+2026-07,Hà Nội,nhà riêng,Cầu Giấy,896,22.54,336.4
+2026-07,Hà Nội,nhà riêng,Đống Đa,879,16.75,298.4
+2026-07,Hà Nội,nhà riêng,Long Biên,727,15.52,257.2
+2026-07,Hà Nội,nhà riêng,Hà Đông,590,10.69,223.0
+2026-07,Hà Nội,nhà riêng,Hai Bà Trưng,524,13.0,261.5
+2026-07,Hà Nội,nhà riêng,Thanh Xuân,494,17.53,295.4
+2026-07,Hà Nội,nhà riêng,Ba Đình,493,19.98,311.6
+2026-07,Hà Nội,nhà riêng,Hoàng Mai,492,12.44,244.5
+2026-07,Hà Nội,nhà riêng,Nam Từ Liêm,362,17.06,259.6
+2026-07,Hà Nội,nhà riêng,Tây Hồ,329,28.56,325.1
+2026-07,Hà Nội,nhà riêng,Bắc Từ Liêm,291,14.88,247.3
+2026-07,Hà Nội,nhà riêng,Thanh Trì,195,8.45,167.2
+2026-07,Hà Nội,nhà riêng,Hoài Đức,130,7.54,147.6
+2026-07,Hà Nội,nhà riêng,Gia Lâm,89,11.75,143.3
+2026-07,Hà Nội,nhà riêng,Hoàn Kiếm,56,26.49,433.7
+2026-07,Hà Nội,nhà riêng,Đông Anh,55,7.8,108.4
+2026-07,Hà Nội,nhà riêng,Chương Mỹ,44,4.26,75.0
+2026-07,Hà Nội,nhà riêng,Quốc Oai,27,5.19,69.9
+2026-07,Hà Nội,nhà riêng,Thanh Oai,22,3.88,104.2
+2026-07,Hà Nội,nhà riêng,Mê Linh,18,5.05,66.9
+2026-07,Hà Nội,nhà riêng,Sóc Sơn,14,3.98,37.1
+2026-07,Hà Nội,shophouse nhà phố thương mại,Nam Từ Liêm,125,27.85,263.8
+2026-07,Hà Nội,shophouse nhà phố thương mại,Gia Lâm,102,14.46,186.0
+2026-07,Hà Nội,shophouse nhà phố thương mại,Đông Anh,48,19.3,188.6
+2026-07,Hà Nội,shophouse nhà phố thương mại,Bắc Từ Liêm,47,27.08,184.7
+2026-07,Hà Nội,shophouse nhà phố thương mại,Hà Đông,40,31.56,283.7
+2026-07,Hà Nội,shophouse nhà phố thương mại,Hoàng Mai,39,32.17,291.8
+2026-07,Hà Nội,shophouse nhà phố thương mại,Đan Phượng,27,17.21,224.1
+2026-07,Hà Nội,shophouse nhà phố thương mại,Long Biên,22,18.07,107.1
+2026-07,Hà Nội,shophouse nhà phố thương mại,Thanh Xuân,17,39.93,226.3
+2026-07,Hà Nội,shophouse nhà phố thương mại,Cầu Giấy,17,69.26,231.8
+2026-07,Hà Nội,shophouse nhà phố thương mại,Hai Bà Trưng,15,27.31,208.9
+2026-07,Hà Nội,shophouse nhà phố thương mại,Hoài Đức,11,25.65,210.1
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 9,644,25.82,137.6
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 2,545,72.48,273.7
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 7,427,53.91,252.0
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Bình Chánh,343,17.8,117.0
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Thủ Đức,218,52.18,173.3
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Hóc Môn,175,7.83,99.4
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Nhà Bè,169,22.15,134.5
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Gò Vấp,145,37.61,225.3
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Cần Giờ,139,29.33,138.5
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 12,76,24.46,91.4
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Tân Phú,63,24.95,90.9
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Bình Thạnh,61,101.33,366.1
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Tân Bình,51,50.88,218.8
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Bình Tân,46,28.16,142.3
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Phú Nhuận,30,45.31,234.4
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 8,21,26.91,136.8
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 10,19,76.63,461.6
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 3,18,123.72,331.8
+2026-07,Hồ Chí Minh,nhà biệt thự liền kề,Quận 1,16,124.53,515.2
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 1,878,87.47,512.6
+2026-07,Hồ Chí Minh,nhà mặt phố,Tân Bình,750,43.03,246.4
+2026-07,Hồ Chí Minh,nhà mặt phố,Tân Phú,736,24.57,148.1
+2026-07,Hồ Chí Minh,nhà mặt phố,Thủ Đức,620,39.71,153.7
+2026-07,Hồ Chí Minh,nhà mặt phố,Bình Thạnh,585,55.21,266.5
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 7,580,40.04,219.1
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 2,549,72.24,271.3
+2026-07,Hồ Chí Minh,nhà mặt phố,Bình Tân,500,17.79,126.9
+2026-07,Hồ Chí Minh,nhà mặt phố,Gò Vấp,460,28.58,175.0
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 3,444,125.59,471.6
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 12,400,19.85,100.5
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 10,395,47.93,370.3
+2026-07,Hồ Chí Minh,nhà mặt phố,Phú Nhuận,389,48.59,305.5
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 8,300,14.46,163.3
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 9,257,28.72,118.8
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 6,237,22.27,176.5
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 5,233,74.66,397.9
+2026-07,Hồ Chí Minh,nhà mặt phố,Bình Chánh,182,17.28,111.3
+2026-07,Hồ Chí Minh,nhà mặt phố,Hóc Môn,139,13.68,60.0
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 11,129,32.05,255.3
+2026-07,Hồ Chí Minh,nhà mặt phố,Quận 4,104,32.29,337.4
+2026-07,Hồ Chí Minh,nhà mặt phố,Nhà Bè,88,14.46,104.4
+2026-07,Hồ Chí Minh,nhà mặt phố,Củ Chi,28,9.46,21.4
+2026-07,Hồ Chí Minh,nhà riêng,Gò Vấp,2031,8.79,128.8
+2026-07,Hồ Chí Minh,nhà riêng,Bình Tân,1968,6.74,99.0
+2026-07,Hồ Chí Minh,nhà riêng,Bình Thạnh,1843,11.75,157.4
+2026-07,Hồ Chí Minh,nhà riêng,Thủ Đức,1702,8.16,97.5
+2026-07,Hồ Chí Minh,nhà riêng,Quận 12,1645,6.06,83.3
+2026-07,Hồ Chí Minh,nhà riêng,Tân Phú,1608,7.62,119.3
+2026-07,Hồ Chí Minh,nhà riêng,Tân Bình,1404,11.32,149.3
+2026-07,Hồ Chí Minh,nhà riêng,Quận 7,1292,9.01,119.6
+2026-07,Hồ Chí Minh,nhà riêng,Phú Nhuận,792,11.88,188.4
+2026-07,Hồ Chí Minh,nhà riêng,Quận 8,724,7.03,123.3
+2026-07,Hồ Chí Minh,nhà riêng,Quận 1,607,18.22,251.9
+2026-07,Hồ Chí Minh,nhà riêng,Quận 3,606,15.53,226.1
+2026-07,Hồ Chí Minh,nhà riêng,Quận 9,580,7.31,90.8
+2026-07,Hồ Chí Minh,nhà riêng,Quận 10,569,13.54,209.9
+2026-07,Hồ Chí Minh,nhà riêng,Nhà Bè,516,6.22,84.3
+2026-07,Hồ Chí Minh,nhà riêng,Quận 6,416,7.32,123.0
+2026-07,Hồ Chí Minh,nhà riêng,Hóc Môn,364,4.32,45.0
+2026-07,Hồ Chí Minh,nhà riêng,Quận 11,345,8.22,160.7
+2026-07,Hồ Chí Minh,nhà riêng,Quận 2,311,17.88,142.9
+2026-07,Hồ Chí Minh,nhà riêng,Bình Chánh,263,4.74,49.7
+2026-07,Hồ Chí Minh,nhà riêng,Quận 4,226,7.57,150.7
+2026-07,Hồ Chí Minh,nhà riêng,Quận 5,143,14.42,215.2
+2026-07,Hồ Chí Minh,nhà riêng,Củ Chi,135,2.42,13.5
+2026-07,Hồ Chí Minh,nhà riêng,Cần Giờ,13,4.18,30.4
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Quận 2,180,48.82,302.8
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Quận 9,95,13.27,134.1
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Quận 7,76,28.72,171.7
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Bình Tân,76,10.87,137.2
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Thủ Đức,33,24.74,152.0
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Nhà Bè,26,32.42,189.0
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Tân Phú,23,32.33,85.5
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Bình Chánh,17,11.23,83.8
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Quận 8,14,6.64,77.8
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Gò Vấp,13,20.74,136.0
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Cần Giờ,11,15.75,164.9
+2026-07,Hồ Chí Minh,shophouse nhà phố thương mại,Tân Bình,10,23.95,72.7
