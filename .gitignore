@@ -1,2 +1,10 @@
-.evidence/
-connection.yaml
+.evidence/template
+.svelte-kit
+build
+node_modules
+.DS_Store
+static/data
+*.options.yaml
+.vscode/settings.json
+.env
+.evidence/meta

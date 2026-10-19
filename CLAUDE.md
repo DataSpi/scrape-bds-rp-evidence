@@ -2,9 +2,13 @@
 
 Convention và mục đích của repo. Không ghi trạng thái hay tiến độ ở đây.
 
-@README.md
+## Dùng bản Evidence nào (quan trọng)
 
-(README.md ở trên là bản hướng dẫn cú pháp Evidence mới của template: component kiểu Markdoc `{% table ... /%}`, CLI `evidence`, docs tại https://docs.evidence.dev. Cú pháp này khác bản Evidence cũ mà model được huấn luyện, nên luôn tra docs và chạy `evidence validate` thay vì đoán.)
+Repo dùng **Evidence legacy** (`@evidence-dev/evidence` 40.x, pin trong `package-lock.json`), **không phải Evidence Core/Studio** (CLI `evidence`, cú pháp Markdoc `{% table /%}`, cần `evidence login`). Lý do và đánh giá chi tiết: README.md. Tóm lại: chỉ legacy build ra site tĩnh để lên GitHub Pages.
+
+- Cú pháp legacy: component kiểu Svelte (`<LineChart data={q} x=month y=price />`), query là khối ```` ```sql ten_query ```` viết bằng DuckDB SQL, input tham chiếu `${inputs.city.value}`. Docs: https://docs.evidence.dev (một phần docs nay mô tả Core, cẩn thận khi tra cứu).
+- Lệnh: `npm run sources` (nạp dữ liệu), `npm run dev`, `npm run build` (ra `build/`). Không dùng CLI `evidence` đã cài trên máy; bản trong `node_modules` mới là bản đúng.
+- Không nâng cấp `@evidence-dev/*` lên bản Core hoặc chạy `evidence migrate`/`login`/`publish`/`launch`/`link` nếu chưa hỏi.
 
 ## Repo này là gì
 
@@ -40,8 +44,9 @@ Một **site tĩnh** cho độc giả blog (series Substack của DataSpi/spyno)
 
 ## Convention
 
-- **Không commit credential.** `connection.yaml` (cấu hình connector BigQuery) đã gitignore. Service account key dùng chung với repo kia: tham chiếu đường dẫn tuyệt đối tới file trong `../scrape-batdongsan-data`, không copy key vào repo này. Chỉ dùng quyền đọc (BigQuery Data Viewer + Job User là đủ).
-- `access.yaml` và các tính năng Evidence Studio (login, publish, commentary, agent) không dùng ở đây: mục tiêu là self-host/static, không phụ thuộc tài khoản Studio. Không chạy `evidence login`/`publish`/`launch`/`link` nếu chưa hỏi.
+- **Không commit credential.** Với nguồn BigQuery thật (plugin `@evidence-dev/bigquery`), thông tin xác thực đặt trong `sources/<ten>/connection.options.yaml` (đã gitignore qua `*.options.yaml`); chỉ `connection.yaml` (không chứa bí mật) được commit. Service account key dùng chung với repo kia: tham chiếu đường dẫn tuyệt đối tới file trong `../scrape-batdongsan-data`, không copy key vào repo này. Chỉ dùng quyền đọc (BigQuery Data Viewer + Job User là đủ).
+- Dữ liệu được truy vấn **lúc build** (`npm run sources`) rồi đóng gói vào site, nên key BigQuery chỉ cần trên máy build (máy local chạy launchd), không đưa lên GitHub Actions. Workflow `pages.yml` hiện chỉ build được dữ liệu CSV demo; khi chuyển sang dữ liệu thật phải build local rồi đẩy `build/` lên Pages, hoặc dùng `sources/` đã xuất sẵn ra file.
+- `sources/bds_demo/` là **dữ liệu giả** (`scripts/gen_dummy_data.py`). Trang public phải luôn ghi rõ khi còn dùng dữ liệu giả.
 - Mỗi thay đổi lớn một branch/PR riêng.
 - Tích hợp vào pipeline tuần (nếu về sau chốt dùng): step build+deploy gọi từ `src/ops/run_weekly_pipeline.sh` của repo kia bằng đường dẫn tuyệt đối, **non-fatal** (dashboard lỗi không được làm sập scrape). Phần đó ghi ở CLAUDE.md của repo kia, không ghi ở đây.
 - Tài liệu và comment viết tiếng Việt, tên file/biến tiếng Anh.

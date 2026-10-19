@@ -1,0 +1,25 @@
+city,district,property_type,median_price_per_m2,listings,change_3m
+Hồ Chí Minh,Quận 1,Chung cư,141.4,1277,0.0286
+Hồ Chí Minh,Quận 7,Chung cư,79.6,1082,0.01
+Hồ Chí Minh,Bình Thạnh,Chung cư,75.0,728,0.0289
+Hồ Chí Minh,Tân Bình,Chung cư,71.1,859,0.0136
+Hồ Chí Minh,Gò Vấp,Chung cư,57.7,1203,0.0439
+Hồ Chí Minh,Thủ Đức,Chung cư,64.4,659,0.0276
+Hồ Chí Minh,Quận 1,Nhà phố,287.2,304,0.0205
+Hồ Chí Minh,Quận 7,Nhà phố,160.4,258,0.0158
+Hồ Chí Minh,Bình Thạnh,Nhà phố,153.9,455,0.0145
+Hồ Chí Minh,Tân Bình,Nhà phố,144.2,312,0.0048
+Hồ Chí Minh,Gò Vấp,Nhà phố,114.8,487,0.0215
+Hồ Chí Minh,Thủ Đức,Nhà phố,136.0,228,0.0103
+Hà Nội,Hoàn Kiếm,Chung cư,157.8,530,0.0601
+Hà Nội,Cầu Giấy,Chung cư,89.3,1006,0.0166
+Hà Nội,Đống Đa,Chung cư,86.6,805,0.0196
+Hà Nội,Nam Từ Liêm,Chung cư,74.9,1085,0.0263
+Hà Nội,Hà Đông,Chung cư,59.8,850,0.0237
+Hà Nội,Long Biên,Chung cư,67.5,690,0.0232
+Hà Nội,Hoàn Kiếm,Nhà phố,334.3,298,0.0247
+Hà Nội,Cầu Giấy,Nhà phố,188.2,241,0.0105
+Hà Nội,Đống Đa,Nhà phố,177.7,242,0.0231
+Hà Nội,Nam Từ Liêm,Nhà phố,154.6,350,0.0091
+Hà Nội,Hà Đông,Nhà phố,124.4,412,0.0316
+Hà Nội,Long Biên,Nhà phố,136.5,361,0.0136

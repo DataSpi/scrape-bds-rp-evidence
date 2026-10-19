@@ -1,67 +1,22 @@
-# Evidence Project
+# scrape-bds-rp-evidence
 
-This is an Evidence Studio project — interactive data reports written in Markdown with embedded Markdoc components, backed by SQL.
+Prototype báo cáo tĩnh bằng [Evidence](https://github.com/evidence-dev/evidence) (bản **legacy**) cho dự án phân tích thị trường BĐS Việt Nam. Repo anh em của `scrape-batdongsan-data`. Mục đích và đầu ra mong muốn: xem [CLAUDE.md](CLAUDE.md).
 
-The latest version of Evidence has some key changes you may not be aware of (recent AI models aren't trained on the new syntax) — read these carefully:
-1. The docs are now hosted at https://docs.evidence.studio
-2. You run the [Evidence CLI](https://docs.evidence.studio/cli) to start the dev server, validate syntax, retrieve docs etc. Run `evidence help` to see all commands.
-3. The syntax has changed:
-  a. Components are markdoc style {% table data="demo.daily_orders" /%}
-  b. SQL now runs ClickHouse SQL, unless you are using a direct connector, in which case it runs native SQL for your warehouse
-4. Sample data is available, run `evidence tables` to see it.
+Trang demo (dữ liệu giả): https://dataspi.github.io/scrape-bds-rp-evidence/
 
-## Install Evidence CLI
-### MacOS / Linux
-```shell
-curl -fsSL https://evidence.studio/install.sh | sh
-```
-### Windows
-```powershell
-irm https://evidence.studio/install.ps1 | iex
+## Chạy local
+
+```bash
+npm ci
+npm run sources   # nạp CSV trong sources/ vào DuckDB
+npm run dev       # xem trước, hot reload
+npm run build     # ra thư mục build/ (site tĩnh)
 ```
 
-## Using the CLI
+Dữ liệu demo sinh bằng `python3 scripts/gen_dummy_data.py` (seed cố định).
 
-- `evidence help` — discover all available commands
-- `evidence login` — authenticate (the user may need to run this themselves, as it requires a browser verification code step)
-- `evidence dev` — start the local dev server to view report pages; show the user the URL, or — better — open it in their browser
-- `evidence validate` — check Markdown and component syntax
+## Kết quả đánh giá Evidence cho mục tiêu "site tĩnh, host miễn phí"
 
-## Example: Sample Data
-
-````markdown
-# Orders by Month
-
-{% dropdown data="demo.daily_orders" id="category" value_column="category" /%}
-
-{% table
-  data="demo.daily_orders"
-  filters=["category"]
-/%}
-````
-
-## Example: Inline Data
-
-````markdown
-
-```sql item_sales
-select 223 as sales, 'Widgets' as product
-union all
-select 498 as sales, 'Gizmos' as product
-union all
-select 354 as sales, 'Thingys' as product
-```
-
-# Product Sales
-
-{% bar_chart
-  data="item_sales"
-  x="product"
-  y="sum(sales)"
-  order="sum(sales) desc"
-/%}
-
-````
-
-## Credentials
-Credentials for direct connectors live in connection.yaml in the project root. If connection.yaml is not specified the Evidence Warehouse will be used.
+- **Evidence Core** (bản mới, CLI `evidence`, template hiện tại của `evidence-dev/template`): SQL chạy phía server, `evidence serve` là server Node cần connector trực tiếp tới warehouse, **không có lệnh build ra site tĩnh**. Không đưa lên GitHub Pages được; self-host chỉ qua Docker (Vercel/Render/Fly/Railway) kèm Basic Auth.
+- **Evidence legacy** (`@evidence-dev/evidence` 40.x, nhánh `legacy` của template): build ra site tĩnh (`@sveltejs/adapter-static`), SQL chạy trong trình duyệt bằng DuckDB WASM. Đây là bản repo này dùng. Đã đóng băng: template chuyển sang Core từ 2026-08-20, bản npm cuối là 40.1.8.
+- **Cái giá của legacy**: bản build nặng khoảng 86 MB (chủ yếu 2 file DuckDB WASM, trình duyệt tải một file khoảng 30+ MB ở lần xem đầu); chrome giao diện (sidebar, nhãn tháng trên trục) mặc định tiếng Anh; không còn phát triển tính năng mới.
