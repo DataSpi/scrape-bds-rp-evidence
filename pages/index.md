@@ -44,6 +44,16 @@ select label from bds_real.periods order by period desc limit 1
 
 Giá nhà rao bán và cho thuê ở HCM & HN, cào từ batdongsan.com.vn và cập nhật theo kỳ. Đây là phần số liệu đi kèm series [phân tích BĐS trên Substack](https://spyno.substack.com) của mình. Mỗi mục bên dưới có danh sách các kỳ báo cáo, bấm vào một kỳ để đọc bài phân tích chi tiết. Từ kỳ thứ hai trở đi, mỗi bài có thêm mục so sánh với kỳ trước.
 
+<a href="/can-dau-tien" class="block rounded-lg border border-primary p-4 my-4 hover:bg-base-200 no-underline">
+<div class="text-lg font-semibold">Căn hộ đầu tiên rẻ nhất bao nhiêu tiền?</div>
+<div class="text-sm text-base-content-muted mt-1">Giá đầu vào của căn 1PN, 2PN đủ rộng để ở, và quận nào còn trong tầm với.</div>
+</a>
+
+<a href="/thue-hay-mua" class="block rounded-lg border border-primary p-4 my-4 hover:bg-base-200 no-underline">
+<div class="text-lg font-semibold">Thuê tiếp hay gồng mua?</div>
+<div class="text-sm text-base-content-muted mt-1">Tiền thuê căn 2PN đặt cạnh tiền trả góp, và quận nào mua đỡ thiệt nhất.</div>
+</a>
+
 # Giá mua
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">

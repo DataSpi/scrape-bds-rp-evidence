@@ -64,13 +64,13 @@ Không có kỳ báo cáo <b>{params.period}</b> cho mảng này. <a href="/mua/
 
 {:else}
 
-Kỳ <b>{per[0].label}</b>: đợt scrape {per[0].win}, <b>{per[0].n_txt}</b> tin chung cư rao bán có giá ở HCM & HN. <a href="/mua/chung-cu" class="text-primary hover:underline">Các kỳ khác</a>.
+Kỳ <b>{per[0].label}</b>: scrape {per[0].win}, <b>{per[0].n_txt}</b> tin chung cư rao bán có giá ở HCM & HN. <a href="/mua/chung-cu" class="text-primary hover:underline">Các kỳ khác</a>.
 
 # Khai báo kĩ thuật
 
 - Nguồn dữ liệu: [https://batdongsan.com.vn/](https://batdongsan.com.vn/)
     - Chỉ lấy tin **căn hộ chung cư rao bán** ở HCM & HN, có giá, chưa hết hạn, thu thập {per[0].win}. Gồm cả tin chưa xác thực.
-- Mỗi kỳ là ảnh chụp toàn bộ tin thấy được trong đợt scrape của kỳ đó, dựng lại từ dữ liệu thô. Một tin còn treo qua nhiều kỳ được tính ở mỗi kỳ, với giá của kỳ đó.
+- Mỗi kỳ gồm mọi đợt scrape trong tháng đó, dựng lại từ dữ liệu thô. Tin xuất hiện ở nhiều đợt trong cùng tháng chỉ tính một lần, theo lần cào gần nhất. Một tin còn treo qua nhiều kỳ được tính ở mỗi kỳ, với giá của kỳ đó.
 - Kỹ thuật:
     - Tool cào Python: HTTP Request, BeautifulSoup; xử lý bằng dbt + BigQuery
     - Github: [scrape-batdongsan-data](https://github.com/DataSpi/scrape-batdongsan-data) (pipeline) và [scrape-bds-rp-evidence](https://github.com/DataSpi/scrape-bds-rp-evidence) (trang này)
@@ -178,7 +178,7 @@ from ${cmp_dist_head}
 
 **Giá/m² trung bình: HCM {cmp_head[0].hcm_m2_chg}, HN {cmp_head[0].hn_m2_chg} so với {prev[0].label}.**
 
-Hai kỳ cùng cào theo danh sách quận như nhau, nhưng số tin mỗi kỳ không bằng nhau (HCM {cmp_head[0].hcm_n_chg}, HN {cmp_head[0].hn_n_chg} số tin). Số tin chênh nhiều thì chênh lệch giá có thể đến từ việc mẫu đổi chứ không hẳn giá đổi, nên đọc kèm dòng số tin.
+Số đợt cào và số tin mỗi kỳ không bằng nhau (HCM {cmp_head[0].hcm_n_chg}, HN {cmp_head[0].hn_n_chg} số tin). Số tin chênh nhiều thì chênh lệch giá có thể đến từ việc mẫu đổi chứ không hẳn giá đổi, nên đọc kèm dòng số tin.
 
 <DataTable data={cmp_long} rows=all groupBy=city>
     <Column id=metric title="Chỉ số" />
