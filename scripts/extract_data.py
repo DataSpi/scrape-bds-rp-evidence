@@ -46,15 +46,29 @@ with base as (
     coalesce(district_name, 'Chưa rõ quận') as district,
     price_num,
     price_1m2,
+    area_num,
     bin_price,
     bin_price_order,
     {BEDROOMS} as bedrooms
   from `{{project}}.re_gold.mart_real_estate_period`
-  where real_estate_type = 'căn hộ chung cư'
+  where length(period) = 7  -- chỉ kỳ tháng (YYYY-MM); seed còn có kỳ tuần (YYYY-MM-DD), site không dùng
+    and real_estate_type = 'căn hộ chung cư'
     and intent = 'Sale'
     and city_name in ('Hồ Chí Minh', 'Hà Nội')
     and price_num is not null
     and not coalesce(expired, false)
+)
+"""
+
+# Căn "sống được" cho người mua lần đầu: 1PN từ 35 m², 2PN từ 50 m² (loại studio/căn siêu nhỏ).
+ENTRY = """
+, entry as (
+  select * from (
+    select *,
+      case when bedrooms = '1' and area_num >= 35 then '1PN'
+           when bedrooms = '2' and area_num >= 50 then '2PN' end as segment
+    from base
+  ) where segment is not null
 )
 """
 
@@ -106,6 +120,39 @@ CC_QUERIES = {
           countif(price_num < 3000) as n_lt3,
           countif(price_num < 5000) as n_lt5
         from base where bedrooms in ('1', '2', '3') group by 1, 2, 3, 4 order by 1, 2, 3, 5 desc""",
+    # Trang "căn đầu tiên": giá đầu vào của căn "sống được" (định nghĩa ở ENTRY). Giá: tỷ đồng.
+    "cc_entry": ENTRY + """
+        , q as (
+          select distinct period, city, segment,
+            percentile_cont(price_num, 0.1) over w as p10,
+            percentile_cont(price_num, 0.25) over w as p25,
+            percentile_cont(price_num, 0.5) over w as p50
+          from entry window w as (partition by period, city, segment)
+        )
+        select period, city, segment, count(*) as n,
+          count(distinct if(e.district != 'Chưa rõ quận', e.district, null)) as n_district,
+          round(q.p10 / 1000, 2) as p10_ty, round(q.p25 / 1000, 2) as p25_ty, round(q.p50 / 1000, 2) as p50_ty,
+          countif(e.price_num <= q.p25) as n_entry,
+          -- diện tích trung vị của nhóm 25% căn rẻ nhất: với giá đầu vào thì được căn cỡ nào
+          round(approx_quantiles(if(e.price_num <= q.p25, e.area_num, null), 2)[offset(1)], 0) as area_entry
+        from entry e join q using (period, city, segment)
+        group by 1, 2, 3, q.p10, q.p25, q.p50 order by 1, 2, 3""",
+    "cc_entry_district": ENTRY + """
+        , q as (
+          select distinct period, city, segment, district,
+            count(*) over w as n,
+            percentile_cont(price_num, 0.25) over w as p25,
+            percentile_cont(price_num, 0.5) over w as p50
+          from entry where district != 'Chưa rõ quận'
+          window w as (partition by period, city, segment, district)
+        )
+        select period, city, segment, district, n,
+          round(p25 / 1000, 2) as p25_ty, round(p50 / 1000, 2) as p50_ty
+        from q where n >= 30 order by 1, 2, 3, p25""",
+    "cc_entry_hist": ENTRY + """
+        select period, city, segment,
+          least(floor(price_num / 500) * 0.5, 8) as bin_lo, count(*) as n
+        from entry group by 1, 2, 3, 4 order by 1, 2, 3, 4""",
 }
 
 # --- Mua nhà đất: 4 loại hình như bài tháng 7. ------------------------------------------------------
@@ -121,7 +168,8 @@ with base as (
     price_1m2,
     area_num
   from `{project}.re_gold.mart_real_estate_period`
-  where real_estate_type in ('nhà riêng', 'nhà mặt phố', 'nhà biệt thự liền kề', 'shophouse nhà phố thương mại')
+  where length(period) = 7
+    and real_estate_type in ('nhà riêng', 'nhà mặt phố', 'nhà biệt thự liền kề', 'shophouse nhà phố thương mại')
     and intent = 'Sale'
     and city_name in ('Hồ Chí Minh', 'Hà Nội')
     and price_num is not null
@@ -167,9 +215,11 @@ with base as (
     coalesce(district_name, 'Chưa rõ quận') as district,
     price_per_month as rent,
     price_per_m2_per_month as rent_m2,
+    area_num,
     {BEDROOMS} as bedrooms
   from `{{project}}.re_gold.mart_real_estate_rent_period`
-  where city_name in ('Hồ Chí Minh', 'Hà Nội')
+  where length(period) = 7
+    and city_name in ('Hồ Chí Minh', 'Hà Nội')
     and price_per_month between 1 and 200
     and area_num between 15 and 200
     and not coalesce(expired, false)
@@ -219,11 +269,37 @@ RENT_QUERIES = {
         select period, city, bedrooms, district, count(*) as n, round(avg(rent_m2), 3) as avg_rent_m2
         from base where bedrooms in ('1', '2', '3') and district != 'Chưa rõ quận'
         group by 1, 2, 3, 4 order by 1, 2, 3, 5 desc""",
+    # Trang "thuê hay mua": tiền thuê căn "sống được" cùng định nghĩa ENTRY với cc_entry. Đơn vị: triệu/tháng.
+    "rent_entry": ENTRY + """
+        , q as (
+          select distinct period, city, segment,
+            percentile_cont(rent, 0.25) over w as p25,
+            percentile_cont(rent, 0.5) over w as p50
+          from entry window w as (partition by period, city, segment)
+        )
+        select period, city, segment, count(*) as n,
+          round(q.p25, 1) as p25_rent, round(q.p50, 1) as p50_rent,
+          round(approx_quantiles(e.area_num, 2)[offset(1)], 0) as area_p50
+        from entry e join q using (period, city, segment)
+        group by 1, 2, 3, q.p25, q.p50 order by 1, 2, 3""",
+    "rent_entry_district": ENTRY + """
+        , q as (
+          select distinct period, city, segment, district,
+            count(*) over w as n,
+            percentile_cont(rent, 0.25) over w as p25,
+            percentile_cont(rent, 0.5) over w as p50
+          from entry where district != 'Chưa rõ quận'
+          window w as (partition by period, city, segment, district)
+        )
+        select period, city, segment, district, n,
+          round(p25, 1) as p25_rent, round(p50, 1) as p50_rent
+        from q where n >= 30 order by 1, 2, 3, p25""",
 }
 
 PERIODS_SQL = """
 select period, label, start_date, end_date
 from `{project}.re_bronze.dim_report_period`
+where length(period) = 7
 order by period
 """
 

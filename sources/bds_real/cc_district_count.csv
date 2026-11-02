@@ -44,50 +44,95 @@ period,city,district,n
 2026-07,Hồ Chí Minh,Quận 3,105
 2026-07,Hồ Chí Minh,Hóc Môn,17
 2026-07,Hồ Chí Minh,Cần Giờ,4
-2026-10,Hà Nội,Nam Từ Liêm,2477
-2026-10,Hà Nội,Hoàng Mai,1800
-2026-10,Hà Nội,Hà Đông,1515
-2026-10,Hà Nội,Cầu Giấy,1468
-2026-10,Hà Nội,Thanh Xuân,1310
-2026-10,Hà Nội,Tây Hồ,963
-2026-10,Hà Nội,Bắc Từ Liêm,918
-2026-10,Hà Nội,Long Biên,770
-2026-10,Hà Nội,Gia Lâm,699
-2026-10,Hà Nội,Hoài Đức,573
-2026-10,Hà Nội,Thanh Trì,386
-2026-10,Hà Nội,Hai Bà Trưng,379
-2026-10,Hà Nội,Đống Đa,364
-2026-10,Hà Nội,Ba Đình,264
-2026-10,Hà Nội,Đông Anh,168
-2026-10,Hà Nội,Đan Phượng,77
-2026-10,Hà Nội,Hoàn Kiếm,56
-2026-10,Hà Nội,Thạch Thất,45
+2026-10,Hà Nội,Nam Từ Liêm,2946
+2026-10,Hà Nội,Hoàng Mai,2145
+2026-10,Hà Nội,Hà Đông,1812
+2026-10,Hà Nội,Cầu Giấy,1753
+2026-10,Hà Nội,Thanh Xuân,1594
+2026-10,Hà Nội,Tây Hồ,1167
+2026-10,Hà Nội,Bắc Từ Liêm,1090
+2026-10,Hà Nội,Long Biên,932
+2026-10,Hà Nội,Gia Lâm,883
+2026-10,Hà Nội,Hoài Đức,701
+2026-10,Hà Nội,Hai Bà Trưng,514
+2026-10,Hà Nội,Thanh Trì,489
+2026-10,Hà Nội,Đống Đa,451
+2026-10,Hà Nội,Ba Đình,309
+2026-10,Hà Nội,Đông Anh,193
+2026-10,Hà Nội,Đan Phượng,106
+2026-10,Hà Nội,Hoàn Kiếm,62
+2026-10,Hà Nội,Thạch Thất,55
+2026-10,Hà Nội,Mê Linh,8
 2026-10,Hà Nội,Thanh Oai,5
-2026-10,Hà Nội,Mê Linh,5
 2026-10,Hà Nội,Chương Mỹ,4
 2026-10,Hà Nội,Quốc Oai,3
-2026-10,Hà Nội,Sóc Sơn,1
 2026-10,Hà Nội,Thường Tín,1
-2026-10,Hồ Chí Minh,Quận 2,2912
-2026-10,Hồ Chí Minh,Quận 7,2483
-2026-10,Hồ Chí Minh,Quận 9,1596
-2026-10,Hồ Chí Minh,Bình Chánh,870
-2026-10,Hồ Chí Minh,Nhà Bè,801
-2026-10,Hồ Chí Minh,Quận 8,795
-2026-10,Hồ Chí Minh,Bình Thạnh,755
-2026-10,Hồ Chí Minh,Tân Phú,706
-2026-10,Hồ Chí Minh,Thủ Đức,548
-2026-10,Hồ Chí Minh,Bình Tân,507
-2026-10,Hồ Chí Minh,Quận 1,420
-2026-10,Hồ Chí Minh,Tân Bình,407
-2026-10,Hồ Chí Minh,Quận 4,357
-2026-10,Hồ Chí Minh,Phú Nhuận,310
-2026-10,Hồ Chí Minh,Quận 10,282
-2026-10,Hồ Chí Minh,Quận 6,268
-2026-10,Hồ Chí Minh,Quận 12,252
-2026-10,Hồ Chí Minh,Gò Vấp,196
-2026-10,Hồ Chí Minh,Quận 11,187
-2026-10,Hồ Chí Minh,Quận 5,155
-2026-10,Hồ Chí Minh,Quận 3,124
-2026-10,Hồ Chí Minh,Hóc Môn,37
-2026-10,Hồ Chí Minh,Cần Giờ,5
+2026-10,Hà Nội,Sóc Sơn,1
+2026-10,Hồ Chí Minh,Quận 2,3669
+2026-10,Hồ Chí Minh,Quận 7,3210
+2026-10,Hồ Chí Minh,Quận 9,2043
+2026-10,Hồ Chí Minh,Bình Chánh,1081
+2026-10,Hồ Chí Minh,Nhà Bè,1071
+2026-10,Hồ Chí Minh,Quận 8,1011
+2026-10,Hồ Chí Minh,Tân Phú,928
+2026-10,Hồ Chí Minh,Bình Thạnh,919
+2026-10,Hồ Chí Minh,Thủ Đức,734
+2026-10,Hồ Chí Minh,Bình Tân,654
+2026-10,Hồ Chí Minh,Quận 1,524
+2026-10,Hồ Chí Minh,Tân Bình,481
+2026-10,Hồ Chí Minh,Quận 4,468
+2026-10,Hồ Chí Minh,Phú Nhuận,372
+2026-10,Hồ Chí Minh,Quận 10,350
+2026-10,Hồ Chí Minh,Quận 6,329
+2026-10,Hồ Chí Minh,Quận 12,319
+2026-10,Hồ Chí Minh,Quận 11,257
+2026-10,Hồ Chí Minh,Gò Vấp,254
+2026-10,Hồ Chí Minh,Quận 5,218
+2026-10,Hồ Chí Minh,Quận 3,146
+2026-10,Hồ Chí Minh,Hóc Môn,42
+2026-10,Hồ Chí Minh,Cần Giờ,6
+2026-11,Hà Nội,Nam Từ Liêm,2342
+2026-11,Hà Nội,Hoàng Mai,1663
+2026-11,Hà Nội,Hà Đông,1471
+2026-11,Hà Nội,Cầu Giấy,1343
+2026-11,Hà Nội,Thanh Xuân,1249
+2026-11,Hà Nội,Tây Hồ,954
+2026-11,Hà Nội,Bắc Từ Liêm,865
+2026-11,Hà Nội,Long Biên,762
+2026-11,Hà Nội,Gia Lâm,689
+2026-11,Hà Nội,Hoài Đức,470
+2026-11,Hà Nội,Hai Bà Trưng,407
+2026-11,Hà Nội,Thanh Trì,405
+2026-11,Hà Nội,Đống Đa,374
+2026-11,Hà Nội,Ba Đình,239
+2026-11,Hà Nội,Đông Anh,168
+2026-11,Hà Nội,Đan Phượng,93
+2026-11,Hà Nội,Hoàn Kiếm,54
+2026-11,Hà Nội,Thạch Thất,43
+2026-11,Hà Nội,Mê Linh,5
+2026-11,Hà Nội,Chương Mỹ,5
+2026-11,Hà Nội,Thanh Oai,4
+2026-11,Hà Nội,Sóc Sơn,1
+2026-11,Hồ Chí Minh,Quận 2,2497
+2026-11,Hồ Chí Minh,Quận 7,2216
+2026-11,Hồ Chí Minh,Quận 9,1351
+2026-11,Hồ Chí Minh,Bình Chánh,785
+2026-11,Hồ Chí Minh,Bình Thạnh,754
+2026-11,Hồ Chí Minh,Nhà Bè,723
+2026-11,Hồ Chí Minh,Tân Phú,663
+2026-11,Hồ Chí Minh,Quận 8,609
+2026-11,Hồ Chí Minh,Thủ Đức,536
+2026-11,Hồ Chí Minh,Bình Tân,462
+2026-11,Hồ Chí Minh,Quận 1,353
+2026-11,Hồ Chí Minh,Quận 4,334
+2026-11,Hồ Chí Minh,Tân Bình,322
+2026-11,Hồ Chí Minh,Quận 10,245
+2026-11,Hồ Chí Minh,Quận 6,232
+2026-11,Hồ Chí Minh,Phú Nhuận,225
+2026-11,Hồ Chí Minh,Quận 12,221
+2026-11,Hồ Chí Minh,Quận 11,191
+2026-11,Hồ Chí Minh,Gò Vấp,190
+2026-11,Hồ Chí Minh,Quận 5,155
+2026-11,Hồ Chí Minh,Quận 3,87
+2026-11,Hồ Chí Minh,Hóc Môn,23
+2026-11,Hồ Chí Minh,Cần Giờ,3

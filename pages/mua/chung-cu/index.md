@@ -21,7 +21,7 @@ join bds_real.periods p using (period)
 order by k.period, k.city
 ```
 
-Tin rao bán căn hộ chung cư ở HCM & HN trên batdongsan.com.vn. Mỗi kỳ là một ảnh chụp toàn bộ tin trong đợt scrape của kỳ đó. Bấm vào một kỳ để đọc bài phân tích chi tiết của kỳ đó.
+Tin rao bán căn hộ chung cư ở HCM & HN trên batdongsan.com.vn. Mỗi kỳ gồm mọi đợt scrape trong tháng đó, dựng lại từ dữ liệu thô. Tin xuất hiện ở nhiều đợt trong cùng tháng chỉ tính một lần, theo lần cào gần nhất. Bấm vào một kỳ để đọc bài phân tích chi tiết của kỳ đó.
 
 ## Các kỳ báo cáo
 

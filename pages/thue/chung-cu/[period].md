@@ -60,14 +60,14 @@ Không có kỳ báo cáo <b>{params.period}</b> cho mảng này. <a href="/thue
 
 {:else}
 
-Kỳ <b>{per[0].label}</b>: đợt scrape {per[0].win}, <b>{per[0].n_txt}</b> tin cho thuê căn hộ chung cư ở HCM & HN (sau lọc). <a href="/thue/chung-cu" class="text-primary hover:underline">Các kỳ khác</a>.
+Kỳ <b>{per[0].label}</b>: scrape {per[0].win}, <b>{per[0].n_txt}</b> tin cho thuê căn hộ chung cư ở HCM & HN (sau lọc). <a href="/thue/chung-cu" class="text-primary hover:underline">Các kỳ khác</a>.
 
 # Khai báo kĩ thuật
 
 - Nguồn dữ liệu: [https://batdongsan.com.vn/](https://batdongsan.com.vn/), loại hình `cho thuê căn hộ chung cư`, thu thập {per[0].win}.
 - Giá bán là trọn gói (tỷ), giá thuê là theo tháng (triệu/tháng), nên các bảng quy đổi cả hai về tr/m² (giá bán tr/m², giá thuê tr/m²/tháng) và tính thêm **P/R ratio** = giá bán/m² ÷ (giá thuê/m²/tháng × 12): số năm tiền thuê để bằng giá mua. Giá bán lấy từ tin chung cư rao bán cùng kỳ.
 - Dữ liệu thuê chưa có bộ lọc outlier như dữ liệu bán. Trang này lọc thô diện tích 15-200 m² và giá thuê 1-200 tr/tháng trước khi tính, giống bài tháng 7/2026.
-- Mỗi kỳ là ảnh chụp toàn bộ tin trong đợt scrape của kỳ đó, dựng lại từ dữ liệu thô. Địa giới hành chính cũ trước sáp nhập.
+- Mỗi kỳ gồm mọi đợt scrape trong tháng đó, dựng lại từ dữ liệu thô. Tin xuất hiện ở nhiều đợt trong cùng tháng chỉ tính một lần, theo lần cào gần nhất. Địa giới hành chính cũ trước sáp nhập.
 
 {#if prev.length > 0}
 
@@ -160,7 +160,7 @@ select district, chg from ${cmp_dist} where city = 'Hà Nội' order by chg desc
 
 **Giá thuê TB: HCM {cmp_head[0].hcm_chg}, HN {cmp_head[0].hn_chg} so với {prev[0].label}.**
 
-Hai kỳ cùng cào theo danh sách quận như nhau, nhưng số tin mỗi kỳ không bằng nhau (HCM {cmp_head[0].hcm_n_chg}, HN {cmp_head[0].hn_n_chg} số tin), nên đọc kèm dòng số tin.
+Số đợt cào và số tin mỗi kỳ không bằng nhau (HCM {cmp_head[0].hcm_n_chg}, HN {cmp_head[0].hn_n_chg} số tin), nên đọc kèm dòng số tin.
 
 <DataTable data={cmp_long} rows=all groupBy=city>
     <Column id=metric title="Chỉ số" />

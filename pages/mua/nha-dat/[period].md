@@ -134,13 +134,13 @@ Không có kỳ báo cáo <b>{params.period}</b> cho mảng này. <a href="/mua/
 
 {:else}
 
-Kỳ <b>{per[0].label}</b>: đợt scrape {per[0].win}, <b>{per[0].n_txt}</b> tin nhà đất rao bán có giá ở HCM & HN. <a href="/mua/nha-dat" class="text-primary hover:underline">Các kỳ khác</a>.
+Kỳ <b>{per[0].label}</b>: scrape {per[0].win}, <b>{per[0].n_txt}</b> tin nhà đất rao bán có giá ở HCM & HN. <a href="/mua/nha-dat" class="text-primary hover:underline">Các kỳ khác</a>.
 
 # Khai báo kĩ thuật
 
 - Nguồn dữ liệu: [https://batdongsan.com.vn/](https://batdongsan.com.vn/), 4 loại hình `nhà riêng`, `nhà mặt phố`, `nhà biệt thự liền kề`, `shophouse nhà phố thương mại`, có giá, chưa hết hạn, thu thập {per[0].win}.
 - Nhà đất có đuôi giá siêu cao (mặt phố, đất thương mại lớn). Trang này dùng số **trung bình** cho nhất quán với bài chung cư, nên giá TB bị đuôi này kéo lên; đọc kèm tỷ lệ tin vừa ngân sách.
-- Mỗi kỳ là ảnh chụp toàn bộ tin trong đợt scrape của kỳ đó, dựng lại từ dữ liệu thô. Địa giới hành chính cũ trước sáp nhập.
+- Mỗi kỳ gồm mọi đợt scrape trong tháng đó, dựng lại từ dữ liệu thô. Tin xuất hiện ở nhiều đợt trong cùng tháng chỉ tính một lần, theo lần cào gần nhất. Địa giới hành chính cũ trước sáp nhập.
 
 {#if prev.length > 0}
 
