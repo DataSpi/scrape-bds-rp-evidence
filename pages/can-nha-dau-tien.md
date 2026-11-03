@@ -1,5 +1,5 @@
 ---
-title: Căn hộ đầu tiên rẻ nhất bao nhiêu tiền?
+title: Căn nhà đầu tiên?
 ---
 
 ```sql latest

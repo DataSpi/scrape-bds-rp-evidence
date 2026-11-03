@@ -24,6 +24,8 @@ Script chỉ `SELECT` và ghi bảng đã tổng hợp ra `sources/bds_real/*.cs
 
 Thêm một kỳ báo cáo mới: thêm dòng vào seed `dbt/seeds/dim_report_period.csv` ở repo scrape-batdongsan-data, chạy `dbt seed -s dim_report_period` + `dbt run -s dim_report_period+`, rồi chạy lại script trên. Trang của kỳ mới tự sinh từ template, không phải viết trang mới.
 
+`sources/macro/context.csv` là số liệu vĩ mô **nhập tay** (lãi tiết kiệm, lãi vay mua nhà, số liệu CBRE) cho trang "Thuê tiếp hay gồng mua?", không do script sinh ra. Nguồn của từng cột ghi ở cuối trang `pages/thue-hay-mua.md`; cập nhật thì thêm dòng `as_of` mới (trang lấy dòng mới nhất) và sửa link nguồn tương ứng.
+
 ## Kết quả đánh giá Evidence cho mục tiêu "site tĩnh, host miễn phí"
 
 - **Evidence Core** (bản mới, CLI `evidence`, template hiện tại của `evidence-dev/template`): SQL chạy phía server, `evidence serve` là server Node cần connector trực tiếp tới warehouse, **không có lệnh build ra site tĩnh**. Không đưa lên GitHub Pages được; self-host chỉ qua Docker (Vercel/Render/Fly/Railway) kèm Basic Auth.
